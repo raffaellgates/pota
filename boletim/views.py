@@ -1,10 +1,9 @@
 from django.shortcuts import render
 from django.views.generic import View
-from timeline.forms import PublicarForm
 from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator, InvalidPage, EmptyPage
 from django.shortcuts import redirect
-from models import Aluno, Nota
+from .models import Aluno, Nota
 
 
 def ListNotas(request, aluno_id):
