@@ -3,10 +3,16 @@ from django.db import models
 class Professor(models.Model):
 	matricula = models.CharField(max_length=25)
 	nome = models.CharField(max_length=150)
+<<<<<<< HEAD
 	cpf = models.CharField(max_length=11)
 	email = models.CharField(max_length=80)
 	dt_nascimento = models.DateField()
 	senha = models.CharField(max_length=30)
+=======
+	cpf = models.CharField(max_length=15)
+	email = models.CharField(max_length=80)
+	dt_nascimento = models.DateField()
+>>>>>>> fb7491ee821e03c946d50f6ff8a1f32f63944efe
 
 	class Meta:
 		ordering = ('nome',)
@@ -18,10 +24,16 @@ class Professor(models.Model):
 class Aluno(models.Model):
 	matricula = models.CharField(max_length=25)
 	nome = models.CharField(max_length=150)
+<<<<<<< HEAD
 	cpf = models.CharField(max_length=11)
 	email = models.CharField(max_length=80)
 	dt_nascimento = models.DateField()
 	senha = models.CharField(max_length=30) 
+=======
+	cpf = models.CharField(max_length=15)
+	email = models.CharField(max_length=80)
+	dt_nascimento = models.DateField()
+>>>>>>> fb7491ee821e03c946d50f6ff8a1f32f63944efe
 
 	class Meta:
 		ordering = ('nome',)
