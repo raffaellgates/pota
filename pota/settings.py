@@ -50,7 +50,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'pota.urls'
+ROOT_URLCONF = 'boletim.urls'
 
 TEMPLATES = [
     {
