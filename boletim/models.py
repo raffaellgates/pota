@@ -1,12 +1,11 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 class Professor(models.Model):
-	matricula = models.CharField(max_length=25)
+	usuario = models.OneToOneField(User, related_name = 'professor', on_delete = models.CASCADE)
 	nome = models.CharField(max_length=150)
 	cpf = models.CharField(max_length=11)
-	email = models.CharField(max_length=80)
 	dt_nascimento = models.DateField()
-	senha = models.CharField(max_length=30)
 
 	class Meta:
 		ordering = ('nome',)
@@ -16,12 +15,10 @@ class Professor(models.Model):
 
 
 class Aluno(models.Model):
-	matricula = models.CharField(max_length=25)
+	usuario = models.OneToOneField(User, related_name = 'aluno', on_delete = models.CASCADE)
 	nome = models.CharField(max_length=150)
 	cpf = models.CharField(max_length=11)
-	email = models.CharField(max_length=80)
-	dt_nascimento = models.DateField()
-	senha = models.CharField(max_length=30) 
+	dt_nascimento = models.DateField() 
 
 	class Meta:
 		ordering = ('nome',)
@@ -54,3 +51,9 @@ class Nota(models.Model):
 	disciplinaId = models.ForeignKey(DisciplinaPeriodo,
 		related_name='notas',
 		on_delete=models.CASCADE)
+	
+	class Meta:
+		ordering = ('valor',)
+
+	def _str_(self):
+		return self.valor
