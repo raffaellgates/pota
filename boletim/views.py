@@ -23,12 +23,11 @@ def ListNotas(request, aluno_id=1):
 
 @login_required
 def index(request):
+    professor = False
+    if Professor.objects.filter(usuario=request.user):
+        professor = True
 
-    return render(request, 'index.html', {'perfil_logado': get_perfil_logado(request)})
-
-def login(request):
-	return render(request, 'login.html')
-
+    return render(request, 'index.html', {'perfil_logado': get_perfil_logado(request), 'professor': professor})
 
 def get_perfil_logado(request):
     aluno = Aluno.objects.filter(usuario=request.user)

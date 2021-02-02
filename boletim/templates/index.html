@@ -21,6 +21,7 @@
 					target="_blank"
 					>Visualizar Notas</a
 					>
+					{% if professor %}
 					<a
 					<a class="btn btn-outline-light btn-lg m-2"
 			        href="{%url 'notasRegister' %}"
@@ -28,6 +29,15 @@
 					role="button"
 					>Lançar Notas</a
 					>
+					{% else %}
+					<a class="btn btn-outline-light btn-lg m-2"
+			        href="{%url 'notasRegister' %}"
+					target="_blank"
+					role="button" 
+					disabled tabindex="-1"
+					>Lançar Notas</a
+					>
+					{% endif %}
 				</div>
 			</div>
 		</div>
