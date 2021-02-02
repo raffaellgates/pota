@@ -1,18 +1,20 @@
 {% extends "header.html" %} {% block title %} {% endblock %} {% block body %}
-{% if perfis %}
+{% if notas %}
 {% for nota in notas %}
-
-Valor:
-{{nota.valor}}
 
 Aluno:
 {{nota.alunoId}}
-
+ <br>
+Valor:
+{{nota.valor}}
+ <br>
 Periodo:
 {{nota.periodo}}
-
+ <br>
 Disciplina:
 {{nota.disciplinaId}}
+<br>
+ <br>
 {% endfor %}
 {% else %}	
 <p>Não há Notas cadastrados</p>
