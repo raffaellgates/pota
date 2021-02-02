@@ -6,8 +6,6 @@
 
 {% block body %}
 
-<body style="background-image: url('http://marcusmarques.com.br/wp-content/uploads/2018/04/mesa-trabalho.jpg');-webkit-background-size: cover;
-  	width: 100%">
 
 <div id="intro-example" class="p-5 text-center">
 		<div class="mask" style="background-color: rgba(0, 0, 0, 0.7)">
@@ -17,15 +15,15 @@
 					<h5 class="mb-4">Atenção! Verifique se você tem permissão de acessar a opção escolhida</h5>
 					<a
 					class="btn btn-outline-light btn-lg m-2"
-					href="https://www.youtube.com/watch?v=c9B4TPnak1A"
+					href="{%url 'listar_notas' perfil_logado.id %}"
 					role="button"
 					rel="nofollow"
 					target="_blank"
 					>Visualizar Notas</a
 					>
 					<a
-					class="btn btn-outline-light btn-lg m-2"
-					href="https://mdbootstrap.com/docs/standard/"
+					<a class="btn btn-outline-light btn-lg m-2"
+			        href="{%url 'notasRegister' %}"
 					target="_blank"
 					role="button"
 					>Lançar Notas</a

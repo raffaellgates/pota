@@ -3,43 +3,24 @@ from django.views.generic import View
 from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator, InvalidPage, EmptyPage
 from django.shortcuts import redirect
-from .models import Aluno, Nota
+from .models import Aluno, Nota, Professor
+from .forms import NotaModelForm
 
-
-def ListNotas(request, aluno_id=):
+@login_required
+def ListNotas(request, aluno_id=1):
+    prof = Professor.objects.filter(usuario=request.user)
+    if prof:
+        notas = Aluno.objects.all()
+        return render(request, 'listNotas.html',
+                  {'notas': notas})
+    
     aluno = Aluno.objects.filter(id=aluno_id)
-    boletim = Nota.objects.filter(alunoID)
-
-    if verificar_login():
-        return render(request, 'notasAlunos.html',
-                  {'boletim': boletim})
+    notas= Nota.objects.filter(alunoId=aluno)
+    return render(request, 'listNotas.html',
+                  {'notas': notas})
     
 
 
-# def index(request):
-# 	# perfil = Perfil.objects.all()
-# 	# perfil_logado = get_perfil_logado(request)
-
-# 	# my_contatos = perfil_logado.contatos.all()
-# 	# all_posts = Postagem.objects.all()
-# 	# postagem = []
-# 	# for post in all_posts:
-# 	# 	if post.perfil in my_contatos or post.perfil == perfil_logado:
-# 	# 		postagem.append(post)
-
-# 	# paginator = Paginator(postagem,3)
-	
-# 	# try:
-# 	# 	page = int(request.GET.get('page','1'))
-# 	# except:
-# 	# 	page = 1
-
-# 	# try:
-# 	# 	postagem = paginator.page(page)
-# 	# except:
-# 	# 	postagem = paginator.page(paginator.num_pages)
-
-# 	return render(request, 'index.html')
 @login_required
 def index(request):
 
@@ -55,3 +36,16 @@ def get_perfil_logado(request):
         return request.user.aluno
     else:
         return request.user.professor
+
+@login_required
+def notasRegister(request):
+    if request.method == 'POST':
+        form = NotaModelForm(request.POST)
+        if form.is_valid():
+            u = form.save()
+            return render(request,'index.html')
+    else:
+        form_class = NotaModelForm
+    return render(request,'notasDetails.html',{
+    	'form': form_class,
+    	})
