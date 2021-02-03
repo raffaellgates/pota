@@ -19,25 +19,27 @@
 					role="button"
 					rel="nofollow"
 					target="_blank"
-					>Visualizar Notas</a
-					>
+					>Visualizar Notas</a>
+
 					{% if professor %}
-					<a
+
 					<a class="btn btn-outline-light btn-lg m-2"
 			        href="{%url 'notasRegister' %}"
 					target="_blank"
 					role="button"
-					>Lançar Notas</a
-					>
+					>Lançar Notas</a>
+
 					{% else %}
+
 					<a class="btn btn-outline-light btn-lg m-2"
 			        href="{%url 'notasRegister' %}"
 					target="_blank"
 					role="button" 
 					disabled tabindex="-1"
-					>Lançar Notas</a
-					>
+					>Lançar Notas</a>
+					
 					{% endif %}
+
 				</div>
 			</div>
 		</div>

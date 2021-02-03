@@ -8,6 +8,11 @@ from django.shortcuts import redirect
 from .models import Aluno, Nota, Professor
 from .forms import NotaModelForm
 
+
+def sobre(request):
+    return render(request, 'about.html')
+
+
 @login_required
 def ListNotas(request, aluno_id=1):
     prof = Professor.objects.filter(usuario=request.user)
@@ -21,7 +26,6 @@ def ListNotas(request, aluno_id=1):
         return render(request, 'listNotas.html', {'notas': notas})
     
 
-
 @login_required
 def index(request):
     professor = False
@@ -29,6 +33,7 @@ def index(request):
         professor = True
 
     return render(request, 'index.html', {'perfil_logado': get_perfil_logado(request), 'professor': professor})
+
 
 def get_perfil_logado(request):
     aluno = Aluno.objects.filter(usuario=request.user)

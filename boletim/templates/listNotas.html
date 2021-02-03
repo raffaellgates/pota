@@ -1,22 +1,29 @@
-{% extends "header.html" %} {% block title %} {% endblock %} {% block body %}
-{% if notas %}
-{% for nota in notas %}
+{% extends "header.html" %}
 
-Aluno:
-{{nota.alunoId}}
- <br>
-Valor:
-{{nota.valor}}
- <br>
-Periodo:
-{{nota.periodo}}
- <br>
-Disciplina:
-{{nota.disciplinaId}}
-<br>
- <br>
+{% block title %}
+<title>POTA - Index</title>
+{% endblock %}
+
+{% block body %}
+
+<div class="container bg-light">
+{% if notas %}
+
+{% for nota in notas %}
+	Aluno: {{nota.alunoId}}
+	<br>
+	Valor: {{nota.valor}}
+	<br>
+	Periodo: {{nota.periodo}}
+	<br>
+	Disciplina: {{nota.disciplinaId}}
+	<br>
+	<hr>
 {% endfor %}
+
 {% else %}	
-<p>Não há Notas cadastrados</p>
+	<p>Não há Notas cadastrados</p>
 {% endif %}
+</div>
+
 {% endblock %} 

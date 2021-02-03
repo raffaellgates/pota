@@ -1,0 +1,40 @@
+{% extends "header.html" %}
+
+
+{% block title %}
+<title>Pota - Sobre</title>
+{% endblock %}
+
+{% block body %}
+<div class="container bg-light">
+
+	<h1>Pota - Part Of The Academic</h1>
+
+	<p>Pota é um projeto desenvolvido na disciplina de Engenharia de Software III do curso de Análise e Desenvolvimento de Sistemas ministrado no Instituto Federal do Piauí.</p>
+
+	<blockquote>
+		<p>O Pota serve como uma plataforma de cadastro de notas, onde o professor pode atribuir as notas dos alunos, e esses podem visualizar as suas respectivas notas. O aluno pode ainda visualizar as notas de períodos passados. Em suma, permite que os usuários tenham acesso a notas, seja para inseri-las ou visualizá-las.
+		</p>
+		<footer>Developed By André Rabelo & Rafael Araújo.</footer>
+	</blockquote>
+
+	<p>Possui como padrão de projeto o MTV (Model, Template, View) que funciona mais ou menos assim:</p>
+
+	<blockquote>
+		<p>Quando o usuário faz uma requisição pelo browser, utilizando uma rota, é executado um método das Views, que utiliza os Models para acessar o banco de dados e retornar as informações. Estas informações são renderizadas pela camada de Template e, finalmente, é renderizado para o usuário pelo navegador.</p>
+	</blockquote>
+
+	<p>Toda esta arquitetura se assemelha bastante com o padrão MVC (Model, View, Controller). Comparado ao MVC, as camadas do padrão MTV podem ser consideradas como podemos ver abaixo:</p>
+
+	<blockquote>
+		<p>M (MTV) = M (MVC): Estas duas camadas possuem a mesma responsabilidade, mapeamento do banco de dados para o projeto;><br>
+		T (MTV) = V (MVC): Estas camadas possuem a mesma responsabilidade, exibir informações para o usuário da aplicação, normalmente utilizando páginas HTML;<br>
+		V (MTV) = C (MVC): Estas duas camadas, apesar de possuírem responsabilidades parecidas, conceitualmente, apresentam algumas diferenças.</p>
+	</blockquote>
+
+	<p>Resumidamente, a camada view descreve quais dados serão apresentados ao usuário, não a forma (aparência) que eles serão exibidos. Portanto, no padrão MTV, uma view é uma função que retorna algo para uma solicitação, porque ela define apenas quais dados serão apresentados, não como serão mostrados.<br><br>
+	Além disso, é sensato separar o conteúdo da apresentação (por questões de organização e padronização do código). É aí que entra camada template. Com os dados retornados pela view, a template fica responsável por definir a forma que esses dados serão apresentados, normalmente em páginas HTML.<br><br>
+	E onde o controller se encaixa? Os desenvolvedores do framework Django entendem que esta camada é a própria estrutura do projeto. É este mecanismo que envia uma solicitação para a view adequada de acordo com a configuração de rotas do Django. E isso faz sentido! Se pararmos para pensar, o controlador da aplicação é o próprio conjunto de bibliotecas que compõe o projeto. A view é mais adequada a retornar os dados a serem visualizados, que serão exibidos ao usuário por meio de templates.</p>
+
+</div>
+{% endblock %}
